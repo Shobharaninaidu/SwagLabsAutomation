@@ -20,6 +20,14 @@ public class BaseClass {
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--no-sandbox"); 
+			options.addArguments("--disable-dev-shm-using") ;
+			options.addArguments("--window-size=1920,1080");
+			options.addArguments("--headless") ;
+			driver = new RemoteWebDriver(new URL("http://http://54.227.4.180:4444"),options);
+
 	}
 
 	@AfterMethod
